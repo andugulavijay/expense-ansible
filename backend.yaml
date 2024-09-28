@@ -16,3 +16,13 @@
   - name: create expense user        
     ansible.builtin.user:
       name: expense 
+
+  - name: create app directory
+    ansible.builtin.file:
+      path: /app
+      state: directory
+
+  - name: download the backend code
+    ansible.builtin.unarchive:
+      src: /tmp/bckend.zip
+      dest: /app        
